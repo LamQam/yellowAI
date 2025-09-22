@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import func
 from typing import List
 
-from app.database.db import get_db
+from app.database.database import get_db
 from app.structure.structure import User, Project, Message, File
 from app.schemas.project import ProjectCreate, ProjectUpdate, ProjectResponse
 from app.api.dependencies import get_current_user, get_user_project

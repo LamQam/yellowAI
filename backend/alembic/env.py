@@ -1,6 +1,6 @@
 # alembic/env.py
 from app.structure.structure import *  # Import all models
-from app.database.db import Base
+from app.database.database import Base
 from app.database.config import settings
 import os
 import sys

@@ -8,11 +8,11 @@ import magic
 import aiofiles
 from typing import List
 
-from app.database.db import get_db
+from app.database.database import get_db
 from app.database.config import settings
 from app.structure.structure import Project, File
 from app.schemas.file import FileUploadResponse, FileListResponse
-from app.api.dependecies import get_user_project
+from app.api.dependencies import get_user_project
 
 router = APIRouter()
 

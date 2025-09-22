@@ -5,7 +5,7 @@ from openai import OpenAI
 from typing import List
 import logging
 
-from app.database.db import get_db
+from app.database.database import get_db
 from app.database.config import settings
 from app.structure.structure import Project, Message
 from app.schemas.chat import ChatMessage, ChatResponse, MessageResponse, ChatHistoryResponse

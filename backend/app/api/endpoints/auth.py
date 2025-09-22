@@ -1,11 +1,12 @@
 # app/api/endpoints/auth.py
 from datetime import timedelta
-from fastapi import APIRouter, Depends, HTTPException, status
+# Add Request import
+from fastapi import APIRouter, Depends, HTTPException, status, Request
 from sqlalchemy.orm import Session
 from slowapi import Limiter
 from slowapi.util import get_remote_address
 
-from app.database.db import get_db
+from app.database.database import get_db
 from app.database.auth import verify_password, get_password_hash, create_access_token
 from app.structure.structure import Project
 from app.structure.structure import User
@@ -20,7 +21,7 @@ limiter = Limiter(key_func=get_remote_address)
 @router.post("/register", response_model=Token)
 @limiter.limit("5/minute")
 async def register(
-    request,
+    request: Request,  # Add proper typing here
     user_data: UserCreate,
     db: Session = Depends(get_db)
 ):
@@ -61,7 +62,7 @@ async def register(
 @router.post("/login", response_model=Token)
 @limiter.limit("10/minute")
 async def login(
-    request,
+    request: Request,  # Add proper typing here too
     login_data: UserLogin,
     db: Session = Depends(get_db)
 ):

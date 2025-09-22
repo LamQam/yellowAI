@@ -8,7 +8,7 @@ from slowapi.errors import RateLimitExceeded
 import time
 
 from app.database.config import settings
-from app.database.db import engine, Base
+from app.database.database import engine, Base
 from app.api.endpoints import auth, projects, chat, files
 
 from fastapi.middleware.cors import CORSMiddleware
